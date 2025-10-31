@@ -22,12 +22,12 @@ var projectData = {
     challenges:
       "Ensuring accurate cycle predictions while accommodating diverse user health profiles. Implementing a user-friendly interface that encourages regular engagement without overwhelming users with notifications.",
     results:
-      "500,000+ downloads, 4.4-star rating on Google Play Store, and featured in health and wellness blogs. Achieved a 75% user retention rate after 3 months.",
+      "1,000+ downloads, 4.7-star rating on Google Play Store, and featured in health and wellness blogs. Achieved a 75% user retention rate after 3 months.",
     metrics: {
-      downloads: "500,000+",
-      rating: "4.4/5",
-      retention: "75%",
-      countries: "120+",
+      downloads: "1,000+",
+      rating: "4.7/5",
+      retention: "78%",
+      countries: "150+",
     },
   },
   "gallery-app": {
@@ -62,7 +62,7 @@ var projectData = {
     metrics: {
       downloads: "5,000,000+",
       rating: "4.5/5",
-      retention: "92%",
+      retention: "72%",
       countries: "150+",
     },
   },
@@ -100,7 +100,7 @@ var projectData = {
     metrics: {
       downloads: "1,000,000+",
       rating: "4.6/5",
-      retention: "89%",
+      retention: "75%",
       awards: "Editor's Choice",
     },
   },
@@ -139,7 +139,7 @@ var projectData = {
     metrics: {
       downloads: "10,000+",
       rating: "4.7/5",
-      retention: "94%",
+      retention: "77%",
       engagement: "45 min/day average",
     },
   },

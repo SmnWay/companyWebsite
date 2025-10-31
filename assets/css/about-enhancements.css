@@ -1,0 +1,137 @@
+/* Modern About section styles */
+
+/* Section badge */
+.section-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(59, 130, 246, 0.2));
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* About highlight section */
+.about-highlight {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease 0.3s;
+}
+
+.about-text.visible .about-highlight {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.highlight-line {
+    width: 3px;
+    height: 40px;
+    background: var(--accent-color);
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
+.highlight-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Decorative elements */
+.about-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.about-shape-1 {
+    top: 10%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    animation: float 12s ease-in-out infinite;
+}
+
+.about-shape-2 {
+    bottom: 10%;
+    left: 10%;
+    width: 150px;
+    height: 150px;
+    background: var(--primary-color);
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.about-dots {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(var(--text-light) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* CTA button */
+.about-cta {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition-delay: 0.6s;
+    border-radius: 30px;
+    padding: 15px 30px;
+}
+
+.about-text.visible .about-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.about-cta:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+/* Enhanced morphing animation for the about graphic */
+@keyframes enhanced-morph {
+    0%, 100% { 
+        border-radius: 50% 10% 50% 10%;
+        transform: translateY(0) rotate(0deg);
+    }
+    25% { 
+        border-radius: 10% 50% 10% 50%;
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% { 
+        border-radius: 40% 60% 30% 70%;
+        transform: translateY(-25px) rotate(0deg);
+    }
+    75% { 
+        border-radius: 20% 30% 60% 40%;
+        transform: translateY(-15px) rotate(-5deg);
+    }
+}
+
+/* Apply this enhanced animation to the about-graphic when visible */
+.about-visual.visible .about-graphic {
+    animation: enhanced-morph 12s ease-in-out infinite;
+}

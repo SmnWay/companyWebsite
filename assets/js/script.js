@@ -522,12 +522,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll(".hero-graphic");
+    // const parallaxElements = document.querySelectorAll(".hero-graphic");
 
-    parallaxElements.forEach((element) => {
-      const speed = 0.5;
-      element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
+    // parallaxElements.forEach((element) => {
+    //   const speed = 0.5;
+    //   element.style.transform = `translateY(${scrolled * speed}px)`;
+    // });
   });
 
   const serviceCards = document.querySelectorAll(".service-card");
@@ -786,7 +786,7 @@ function initializePageLoader() {
         setTimeout(() => {
           preloader.style.display = "none";
         }, 500);
-      }, 800); 
+      }, 800);
     });
 
     setTimeout(() => {
@@ -797,7 +797,7 @@ function initializePageLoader() {
           preloader.style.display = "none";
         }, 500);
       }
-    }, 5000); 
+    }, 5000);
   }
 }
 
@@ -925,8 +925,8 @@ function addInteractiveEffects() {
 function createTypingEffect(element) {
   const originalText = element.textContent;
   element.textContent = "";
-  element.style.borderRight = "3px solid #3b82f6";
-  element.style.whiteSpace = "nowrap";
+  // element.style.borderRight = "3px solid #3b82f6";
+  element.style.whiteSpace = "wrap";
   element.style.overflow = "hidden";
 
   let i = 0;
@@ -1158,17 +1158,19 @@ setInterval(() => {
   increaseCounters("followerCounter", "335230");
 }, twoWeekInMs);
 
-// Contact form submission
+
+// form submission
 $(document).ready(function () {
+
+  // contact
   $("#contactForm").submit(function (e) {
     e.preventDefault();
     submitForm();
   });
 
   function submitForm() {
-    // Initiate Variables With Form Content
     var name = $("#name").val();
-    var email = $("#psta_adrss").val(); // Use psta_adrss for email field
+    var email = $("#psta_adrss").val();
     var msg_subject = $("#msg_subject").val();
     var message = $("#message").val();
 
@@ -1178,145 +1180,69 @@ $(document).ready(function () {
     formData.append("msg_subject", msg_subject);
     formData.append("message", message);
 
-    fetch("send-email.php", {
+    fetch("support.php", {
       method: "POST",
       body: formData,
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((data) => {
-        if (data.includes("success") || data.includes("sent")) {
-          formSuccess();
-        } else {
-          formError();
-          submitMSG(false, "Error sending message. Please try again.");
-        }
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+        }).showToast();
       })
       .catch((err) => {
-        formError();
-        submitMSG(false, "Error sending message. Please try again.");
+        console.error("Error:", err);
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+        }).showToast();
       });
   }
 
-  function formSuccess() {
-    $("#contactForm")[0].reset();
-    submitMSG(true, "Message Sent Successfully!");
-  }
+  // career
+  $("#applicationForm").submit(function (e) {
+    e.preventDefault();
 
-  function formError() {
-    $("#contactForm")
-      .removeClass()
-      .addClass("shake animated")
-      .one(
-        "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-        function () {
-          $(this).removeClass();
-        }
-      );
-  }
+    const formData = new FormData(this);
 
-  function submitMSG(valid, msg) {
-    if (valid) {
-      var msgClasses = "h3 text-center text-success";
-    } else {
-      var msgClasses = "h3 text-center text-danger";
-    }
-    $("#msgSubmit").removeClass().addClass(msgClasses).text(msg).show();
-
-    // Hide message after 5 seconds
-    setTimeout(function () {
-      $("#msgSubmit").fadeOut();
-    }, 5000);
-  }
+    fetch("career.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+        }).showToast();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        Toastify({
+          text: data.message,
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+        }).showToast();
+      });
+  });
 });
 
-function openApplicationModal(position) {
+function openApplicationModal() {
   const modal = document.getElementById("applicationModal");
-  const positionInput = document.getElementById("position");
-
-  if (position === "intern") {
-    positionInput.value = "Software Development Intern";
-  }
-
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function closeApplicationModal() {
   const modal = document.getElementById("applicationModal");
-  const closeBtn = document.querySelector("#applicationModal .modal-close");
-  const applicationForm = document.getElementById("applicationForm");
-
-  // Close modal when close button is clicked
-  if (closeBtn) {
-    closeBtn.onclick = function () {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    };
-  }
-
-  // Close modal when clicking outside the modal content
-  window.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  };
-
-  // Close modal with Escape key
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && modal && modal.style.display === "block") {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  });
-
-  // Handle form submission
-  if (applicationForm) {
-    applicationForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-
-      // Show loading state
-      submitBtn.innerHTML =
-        '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-      submitBtn.disabled = true;
-
-      // Create FormData object
-      const formData = new FormData(this);
-
-      // Submit form via AJAX
-      fetch("form-process.php", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            // Show success message
-            alert(
-              "Application submitted successfully! We will review it and get back to you soon."
-            );
-            this.reset();
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-          } else {
-            // Show error message
-            alert("Error: " + data.message);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert(
-            "An error occurred while submitting your application. Please try again."
-          );
-        })
-        .finally(() => {
-          // Reset button state
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        });
-    });
-  }
-});
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}

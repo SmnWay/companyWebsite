@@ -2783,11 +2783,16 @@ body {
     .blog-grid {
         grid-template-columns: 1fr;
     }
-    
-    .hero-graphic {
+
+    .about-graphic{
         width: 200px;
         height: 200px;
     }
+    
+    /* .hero-graphic {
+        width: 200px;
+        height: 200px;
+    } */
     
     .hero-graphic i {
         font-size: 2rem;

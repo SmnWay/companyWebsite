@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers - SmnWay | Join Our Team</title>
-    <meta name="description" content="Join SmnWay's dynamic team of developers and designers. Explore career opportunities in web development, mobile apps, and tech innovation.">
-    <meta name="keywords" content="careers, jobs, web developer, mobile developer, intern, tech jobs, software development, SmnWay careers">
+    <meta name="description"
+        content="Join SmnWay's dynamic team of developers and designers. Explore career opportunities in web development, mobile apps, and tech innovation.">
+    <meta name="keywords"
+        content="careers, jobs, web developer, mobile developer, intern, tech jobs, software development, SmnWay careers">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/about-enhancements.css">
     <link rel="stylesheet" href="assets/css/modern-ui.css">
     <link rel="stylesheet" href="assets/css/features-enhancements.css">
     <link rel="stylesheet" href="assets/css/stats-enhancements.css">
     <link rel="stylesheet" href="assets/css/portfolio-enhancements.css">
+    <link rel="stylesheet" href="assets/css/toastify.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -108,7 +111,8 @@
         <div class="container">
             <div class="section-header reveal-up">
                 <h2 class="animate-heading">Why Choose SmnWay?</h2>
-                <p class="reveal-up">Join a team that's passionate about creating exceptional digital experiences and driving innovation in the tech industry.</p>
+                <p class="reveal-up">Join a team that's passionate about creating exceptional digital experiences and
+                    driving innovation in the tech industry.</p>
             </div>
 
             <div class="benefits-grid stagger-container">
@@ -117,7 +121,8 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Innovative Projects</h3>
-                    <p>Work on cutting-edge technologies and exciting projects that challenge and inspire you every day.</p>
+                    <p>Work on cutting-edge technologies and exciting projects that challenge and inspire you every day.
+                    </p>
                 </div>
 
                 <div class="benefit-item stagger-item reveal-scale">
@@ -133,7 +138,8 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Career Growth</h3>
-                    <p>Continuous learning opportunities, mentorship programs, and clear paths for career advancement.</p>
+                    <p>Continuous learning opportunities, mentorship programs, and clear paths for career advancement.
+                    </p>
                 </div>
 
                 <div class="benefit-item stagger-item reveal-scale">
@@ -141,7 +147,8 @@
                         <i class="fas fa-balance-scale"></i>
                     </div>
                     <h3>Work-Life Balance</h3>
-                    <p>Flexible working hours, remote work options, and a healthy work environment that values your well-being.</p>
+                    <p>Flexible working hours, remote work options, and a healthy work environment that values your
+                        well-being.</p>
                 </div>
 
                 <div class="benefit-item stagger-item reveal-scale">
@@ -149,7 +156,8 @@
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>Learning & Development</h3>
-                    <p>Access to training programs, conferences, and resources to keep your skills sharp and current.</p>
+                    <p>Access to training programs, conferences, and resources to keep your skills sharp and current.
+                    </p>
                 </div>
 
                 <div class="benefit-item stagger-item reveal-scale">
@@ -157,7 +165,8 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>Great Culture</h3>
-                    <p>Be part of a culture that celebrates creativity, innovation, and mutual respect among team members.</p>
+                    <p>Be part of a culture that celebrates creativity, innovation, and mutual respect among team
+                        members.</p>
                 </div>
             </div>
         </div>
@@ -168,7 +177,8 @@
         <div class="container">
             <div class="section-header reveal-up">
                 <h2 class="animate-heading">Open Positions</h2>
-                <p class="reveal-up">Discover opportunities that match your skills and passion. We're always looking for talented individuals to join our team.</p>
+                <p class="reveal-up">Discover opportunities that match your skills and passion. We're always looking for
+                    talented individuals to join our team.</p>
             </div>
 
             <div class="jobs-grid stagger-container">
@@ -183,7 +193,9 @@
                         <span>Remote</span>
                     </div>
                     <div class="job-description">
-                        <p>Join our development team as an intern and gain hands-on experience in web and mobile app development. Perfect opportunity for computer science students or recent graduates to kickstart their tech career.</p>
+                        <p>Join our development team as an intern and gain hands-on experience in web and mobile app
+                            development. Perfect opportunity for computer science students or recent graduates to
+                            kickstart their tech career.</p>
                     </div>
                     <div class="job-details">
                         <div class="job-requirements">
@@ -220,7 +232,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button class="apply-btn" onclick="openApplicationModal('intern')">
+                    <button class="apply-btn" onclick="openApplicationModal()">
                         <i class="fas fa-paper-plane"></i> Apply Now
                     </button>
                 </div>
@@ -232,15 +244,15 @@
     <!-- Application Modal -->
     <div id="applicationModal" class="application-modal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close" onclick="closeApplicationModal()">&times;</span>
             <div class="modal-header">
                 <h2>Apply for Position</h2>
                 <p>We're excited to learn more about you! Please fill out the application form below.</p>
             </div>
             <div class="modal-body">
-                <form id="applicationForm" method="post" action="form-process.php" enctype="multipart/form-data">
+                <form id="applicationForm" method="post" action="career.php" enctype="multipart/form-data">
                     <input type="hidden" id="position" name="position" value="">
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -256,6 +268,7 @@
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
+                            <input type="text" name="email_real" style="display: none;" id="email" />
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
@@ -281,17 +294,20 @@
 
                     <div class="form-group">
                         <label for="experience">Relevant Experience</label>
-                        <textarea id="experience" name="experience" rows="4" placeholder="Tell us about your programming experience, projects, or relevant coursework..."></textarea>
+                        <textarea id="experience" name="experience" rows="4"
+                            placeholder="Tell us about your programming experience, projects, or relevant coursework..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="motivation">Why do you want to join SmnWay? *</label>
-                        <textarea id="motivation" name="motivation" rows="4" required placeholder="What interests you about this position and our company?"></textarea>
+                        <textarea id="motivation" name="motivation" rows="4" required
+                            placeholder="What interests you about this position and our company?"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="portfolio">Portfolio/GitHub Link</label>
-                        <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername or your portfolio URL">
+                        <input type="url" id="portfolio" name="portfolio"
+                            placeholder="https://github.com/yourusername or your portfolio URL">
                     </div>
 
                     <div class="form-group">
@@ -326,7 +342,8 @@
             <div class="contact-content reveal-up">
                 <div class="contact-text">
                     <h2 class="animate-heading">Don't See a Perfect Match?</h2>
-                    <p>We're always interested in talking to talented individuals. Send us your resume and tell us about your passion for technology.</p>
+                    <p>We're always interested in talking to talented individuals. Send us your resume and tell us about
+                        your passion for technology.</p>
                     <a href="index.html#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Get In Touch
                     </a>
@@ -349,7 +366,7 @@
         </div>
     </section>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -360,9 +377,9 @@
                     <p>Expert in web and mobile app development, delivering innovative solutions for businesses of all
                         sizes.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/SmnTech-100306834697881/"><i class="fab fa-facebook"></i></a>
+                        <!-- <a href="https://www.facebook.com/SmnTech-100306834697881/"><i class="fab fa-facebook"></i></a>
                         <a href="https://twitter.com/SmnTechie"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/smntechie/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/smntechie/"><i class="fab fa-instagram"></i></a> -->
                         <a href="https://www.linkedin.com/company/smntech"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
@@ -410,6 +427,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/toastify.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 

@@ -22,7 +22,7 @@ var projectData = {
     challenges:
       "Ensuring accurate cycle predictions while accommodating diverse user health profiles. Implementing a user-friendly interface that encourages regular engagement without overwhelming users with notifications.",
     results:
-      "1,000+ downloads, 4.7-star rating on Google Play Store, and featured in health and wellness blogs. Achieved a 75% user retention rate after 3 months.",
+      "1,000+ downloads, 4.7-star rating on Google Play Store, and featured in health and wellness blogs. Achieved a 78% user retention rate after 3 months.",
     metrics: {
       downloads: "1,000+",
       rating: "4.7/5",
@@ -58,7 +58,7 @@ var projectData = {
     challenges:
       "Creating smooth 3D transitions on various Android devices while maintaining optimal performance and battery life. Implementing military-grade encryption for private folders without compromising user experience.",
     results:
-      "5,000,000+ downloads, 4.5-star rating, featured in Google Play Store's 'Top Apps' category. 92% user retention rate after 30 days.",
+      "5,000,000+ downloads, 4.5-star rating, featured in Google Play Store's 'Top Apps' category. 72% user retention rate after 30 days.",
     metrics: {
       downloads: "5,000,000+",
       rating: "4.5/5",
